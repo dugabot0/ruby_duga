@@ -1,24 +1,29 @@
 # RubyDuga
 
-TODO: Delete this and the text below, and describe your gem
+Client for the DUGA Web Service API v1.2
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruby_duga`. To experiment with that code, run `bin/console` for an interactive prompt.
+## DUGA API Account
+
+If you do not have a DUGA API Application ID, you can register at [DUGA](https://click.duga.jp/aff/40413-01). You will get Application ID and Agent ID.
 
 ## Installation
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
-
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add ruby_duga
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_PRIOR_TO_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install ruby_duga
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+cli = RubyDuga.new(app_id: "YOUR_APP_ID", agent_id: "YOUR_AGENT_ID", banner_id: "YOUR_BANNER_ID")
+response = cli.search(keyword: "コメディ", adult: 0)
+response.body[:items].map {|x| x[:item][:title]}
+=> ["けっこう仮面 マングリフォンの逆襲", "古今亭駒次「公園のひかり号」", "けっこう仮面 フォーエバー", "けっこう仮面 RETURNS", "できる子の証明", "天然華汁さやか", "けっこう仮面 プレミアム", "18倫 アイドルを探せ！", "ビキニ★ラーメン", "18倫"]
+```
 
 ## Development
 
@@ -28,12 +33,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ruby_duga. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/ruby_duga/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/dugabot0/ruby_duga.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the RubyDuga project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/ruby_duga/blob/master/CODE_OF_CONDUCT.md).
