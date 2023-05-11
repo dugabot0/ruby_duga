@@ -1,5 +1,4 @@
 require "faraday"
-require "faraday_middleware"
 require_relative "response"
 require_relative "version"
 
